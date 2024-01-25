@@ -1,7 +1,11 @@
 function reverse(str) {
-    let lettersArray = str.split('');
-    let reversedLettersArray = lettersArray.reverse();
-    return reversedLettersArray.join('');
+    let reversed = '';
+
+    for (let i = 0; i < str.length; i++) {
+        reversed = str[i] + reversed;
+    }
+
+    return reversed;
 }
 function makeLine(size) {
     let line = '';
@@ -66,7 +70,7 @@ function makeDiamond(height,newChars) {
     for (let i = 0; i < height; i++) {
             diamond += makeSpaceLine(height - i - 1, 2 * i + 1,newChars) + "\n";
     }
+    diamond += reverse(diamond.slice(0,-1));
     return  diamond.slice(0,-1);
 }
-console.log(makeDiamond(5,7));
-console.log(reverse(makeDiamond(5,7)));
+console.log(makeDiamond(5,'j'));
